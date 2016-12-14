@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+    <kbase name="SimpleRuleKBase" packages="com.us.person">
+        <ksession name="simpleRuleKSession"/>
+    </kbase>
+
+    <kbase name="HelloWorldKB" packages="com.us.helloword">
+        <ksession name="HelloWorldKS"/>
+    </kbase>
+
+    <kbase name="FireKB" packages="com.us.fire">
+        <ksession name="FireKS"/>
+    </kbase>
+
+
+    <kbase name="TemplatesKB" packages="com.us.templates">
+        <ruleTemplate dtable="com/us/templates/ExampleCheese.xls"
+                      template="com/us/templates/Cheese.drt"
+                      row="2" col="2"/>
+        <ksession name="TemplatesKS"/>
+    </kbase>
+
+
+    <!--喝啤酒-->
+    <kbase name="DrinkBeerKB" packages="com.us.drink">
+        <ksession name="DrinkBeerKS"/>
+    </kbase>
+
+</kmodule>
