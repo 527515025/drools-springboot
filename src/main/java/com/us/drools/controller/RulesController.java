@@ -20,13 +20,13 @@ public class RulesController {
 
     @Autowired
     private RulesService rulesService;
-
-    @RequestMapping(value ="/{id}" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    @ResponseBody
-    public ResponseEntity<Object> getRule(@PathVariable Integer id) {
-
-        return new ResponseEntity<>(rulesService.getRules(id), HttpStatus.OK);
-    }
+//
+//    @RequestMapping(value ="/{id}" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+//    @ResponseBody
+//    public ResponseEntity<Object> getRule(@PathVariable Integer id) {
+//
+//        return new ResponseEntity<>(rulesService.getRules(id), HttpStatus.OK);
+//    }
 
     @RequestMapping(value ="/write/{id}" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
     @ResponseBody
