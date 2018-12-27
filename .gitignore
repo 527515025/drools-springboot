@@ -16,4 +16,4 @@
 # IDEA ignore
 .idea
 
-
+!application.properties
