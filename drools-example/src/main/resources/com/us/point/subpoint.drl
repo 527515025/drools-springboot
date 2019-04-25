@@ -1,0 +1,36 @@
+package com.us.point
+import com.us.point.PointDomain
+import function com.us.point.PointTest.printInfo;
+
+ function void printlnPoint(long point){
+        System.out.println("----------当前积分为"+point+"---------------");
+    }
+
+rule subBackNumsPoint
+	// 发生退货，扣减10分
+	salience 10
+	lock-on-active true
+	when
+		$pointDomain : PointDomain(backNums >= 1)
+	then
+	    System.out.println ( "执行规则: "+drools.getRule().getName());
+		$pointDomain.setPoint($pointDomain.getPoint()-10);
+		$pointDomain.recordPointLog($pointDomain.getUserName(),"subBackNumsPoint");
+		PointTest.printInfo($pointDomain);
+
+end
+
+rule subBackMondyPoint
+	// 退货金额大于等于100，扣减100分
+	salience 9
+	lock-on-active true
+	when
+		$pointDomain : PointDomain(backMondy >= 100)
+	then
+	    System.out.println ( "执行规则: "+drools.getRule().getName());
+		$pointDomain.setPoint($pointDomain.getPoint()-100);
+		$pointDomain.recordPointLog($pointDomain.getUserName(),"subBackMondyPoint");
+		System.out.println($pointDomain.getUserName()+"-------------------");
+		PointTest.printInfo($pointDomain);
+
+end

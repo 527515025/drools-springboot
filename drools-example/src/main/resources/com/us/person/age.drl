@@ -1,0 +1,34 @@
+package com.us.person;
+
+import com.us.person.Person;
+
+   function void printName(String name,Integer age) {
+            System.out.println("name:"+name+" age:"+ age);
+        }
+
+      rule "boy"
+            salience 3
+            when
+                $p : Person(age > 0);
+            then
+                $p.setAge(101);
+
+                printName("age >0 "+$p.getName(),$p.getAge());
+        end
+
+        rule "youth"
+            salience 2
+            when
+                $p : Person(age > 10);
+            then
+                printName("age > 10 "+$p.getName(),$p.getAge());
+        end
+
+        rule "midlife"
+            salience 1
+            when
+                $p : Person(age > 100);
+            then
+                printName("我已经100岁了"+$p.getName(),$p.getAge());
+        end
+

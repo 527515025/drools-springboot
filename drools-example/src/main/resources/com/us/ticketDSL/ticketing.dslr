@@ -1,0 +1,56 @@
+package com.us.ticketDSL
+import com.us.ticketDSL.Customer;
+import com.us.ticketDSL.Ticket;
+expander ticketing.dsl
+
+rule "New Ticket"
+    salience 10
+    when
+       我要买张票 "买票"
+    then
+       打印 " 买到了一张票"
+end
+
+rule "Silver "
+
+    duration 3000
+    when
+        这是一个 "Silver" 卡客户 "买票"
+
+    then
+        优惠
+        打印 " 是个Silver卡用户, 买票获得10元代金劵。"
+end
+
+rule "Gold "
+    duration 1000
+    when
+        这是一个 "Gold" 卡客户 "买票"
+    then
+        优惠
+         打印 " 是个Gold卡用户, 买票获得30元代金劵。"
+end
+
+rule "Platinum "
+    when
+        这是一个 "Platinum" 卡客户 "买票"
+    then
+         优惠
+         打印 " 是个Platinum卡用户, 买票获得50元代金劵。"
+end
+
+
+
+rule "Escalate"
+    when
+        我要买张票 "获得了一张代金劵"
+    then
+        Send  email
+end
+
+
+function void sendEscalationEmail( Customer customer, Ticket ticket ) {
+    System.out.println( "Email : " + ticket );
+}
+
+

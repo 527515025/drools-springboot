@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
+
+    <kbase name="SimpleRuleKBase" packages="com.us.person">
+        <ksession name="simpleRuleKSession"/>
+    </kbase>
+
+    <kbase name="HelloWorldKB" packages="com.us.helloword">
+        <ksession name="HelloWorldKS"/>
+    </kbase>
+
+    <kbase name="TemplatesKB" packages="com.us.templates">
+        <ruleTemplate dtable="com/us/templates/ExampleCheese.xls"
+                      template="com/us/templates/Cheese.drt"
+                      row="2" col="2"/>
+        <ksession name="TemplatesKS"/>
+    </kbase>
+
+
+    <!--喝啤酒-->
+    <kbase name="DrinkBeerKB" packages="com.us.drink">
+        <ksession name="DrinkBeerKS"/>
+    </kbase>
+    <!--积分信用卡-->
+    <kbase name="rules" packages="com.us.point">
+        <ksession name="ksession-rules"/>
+    </kbase>
+
+    <!--DSL买票-->
+    <kbase name="TicketWithDSLKB" packages="com.us.ticketDSL">
+        <ksession name="TicketWithDSLKS"/>
+    </kbase>
+
+    <!--决策表-->
+    <kbase name="PersonAgeKB" packages="com.us.personTemp">
+        <ksession name="PersonAgeKS"/>
+    </kbase>
+
+    <!--fusion-->
+    <kbase name="fusionAge" eventProcessingMode="stream" packages="com.us.fusion">
+        <ksession name="fusionAgeKS" type="stateful"/>
+    </kbase>
+</kmodule>

@@ -1,0 +1,57 @@
+//package com.us.ticketDSL
+//import Customer;
+//import Ticket;
+//
+//function void sendEscalationEmail( Customer customer, Ticket ticket ) {
+//    System.out.println( "Email : " + ticket );
+//}
+//
+//rule "New Ticket"
+//    salience 10
+//    when
+//        customer : Customer( )
+//        ticket : Ticket( customer == customer, status == "买票" )
+//    then
+//        System.out.println(customer.getName() + "买到了一张票" );
+//end
+//
+//rule "Silver "
+//    duration 3000
+//    when
+//        customer : Customer( subscription == "Silver" )
+//        ticket : Ticket( customer == customer, status == "买票" )
+//    then
+//        ticket.setStatus("获得了一张代金劵");update(ticket);
+//         System.out.println(customer.getName() + "是个Silver卡用户, 买票获得10元代金劵。" );
+//end
+//
+//rule "Gold "
+//    duration 1000
+//    when
+//        customer : Customer( subscription == "Gold" )
+//        ticket : Ticket( customer == customer, status == "买票" )
+//    then
+//       ticket.setStatus("获得了一张代金劵");update(ticket);
+//       System.out.println(customer.getName() + "是个Gold卡用户, 买票获得30元代金劵。" );
+//
+//end
+//
+//rule "Platinum "
+//    when
+//        customer : Customer( subscription == "Platinum" )
+//        ticket : Ticket( customer == customer, status == "买票" )
+//    then
+//       ticket.setStatus("获得了一张代金劵");update(ticket);
+//       System.out.println(customer.getName() + "是个Platinum卡用户, 买票获得50元代金劵。" );
+//
+//end
+//
+//rule "Escalate"
+//    when
+//        customer : Customer( )
+//        ticket : Ticket( customer == customer, status == "获得了一张代金劵" )
+//    then
+//        sendEscalationEmail( customer, ticket );
+//end
+//
+//

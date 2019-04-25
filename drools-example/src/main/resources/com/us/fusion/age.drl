@@ -1,0 +1,47 @@
+package com.us.fusion7
+import com.us.model.Person
+
+
+function void printName(String streamName,String name,int age,String desc) {
+            System.out.println("streamName:"+streamName+"  name:"+name+" age:"+age+" desc:"+ desc);
+
+        }
+function void printDesc(String desc ) {
+            System.out.println("streamName:"+desc);
+
+        }
+
+declare Person
+    @role(event)
+    @timestamp( createTime )
+    @expires(20s)
+end
+
+
+rule "old"
+     //数字越大，执行越靠前
+     salience 2
+     when
+
+           $p : Person(age > 29) over window:length(2)
+     then
+           $p.setDesc("老年，输出最近两条记录");
+           retract($p);
+           printName("boy",$p.getName(),$p.getAge(),$p.getDesc());
+end
+
+
+rule "boy"
+     salience 1
+     when
+
+           $p : Person(age > 0) over window:time(3s)
+     then
+           $p.setDesc("少年 输出最近3秒记录");
+           retract($p);
+           printName("boy",$p.getName(),$p.getAge(),$p.getDesc());
+end
+
+
+
+

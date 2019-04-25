@@ -1,0 +1,57 @@
+package com.us.drink;
+import com.us.drink.Customer;
+
+    function void printInfo(String info){
+        System.out.println(info);
+    }
+
+    rule "buy a beer and drink"
+      salience 3
+        when
+        $c: Customer(money >= 2,$m:money,$b:blankCup,$d:drinkSum,$a:cap);
+        then
+            $c.setMoney($m-2);
+            $c.setBlankCup($b+1);
+            $c.setDrinkSum($d+1);
+            $c.setCap($a+1);
+
+           printInfo($c.toString());
+
+            update($c);
+
+    end
+
+    rule "sale blank cup get a beer"
+      salience 2
+        when
+            $c : Customer(blankCup>=2,$b:blankCup,$d:drinkSum,$a:cap);
+        then
+            $c.setBlankCup($b-1);
+            $c.setDrinkSum($d+1);
+            $c.setCap($a+1);
+
+           printInfo($c.toString());
+
+            update($c);
+    end
+
+        rule "sale cap and get a beer"
+          salience 1
+            when
+                $c : Customer(cap>=4,$b:blankCup,$d:drinkSum,$a:cap);
+            then
+                $c.setCap($a-3);
+                $c.setBlankCup($b+1);
+                $c.setDrinkSum($d+1);
+
+               printInfo($c.toString());
+                update($c);
+        end
+
+        rule "finish drink"
+            dialect "java"
+            when
+                $c:Customer(blankCup < 2,money < 2,cap< 4);
+            then
+               printInfo("finish drink"+$c.toString());
+        end
