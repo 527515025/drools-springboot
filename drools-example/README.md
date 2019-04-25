@@ -1,2 +1,2 @@
-# DroolsExample
-Example
+# drools-example
+drools-example

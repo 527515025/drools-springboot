@@ -1,4 +1,4 @@
-# drools-springboot
+# springboot-drools-dynamic-db
 drools+springboot
 
 
