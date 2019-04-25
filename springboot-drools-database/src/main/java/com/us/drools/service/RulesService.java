@@ -6,6 +6,7 @@ import com.us.drools.bean.Rules;
 import com.us.drools.dao.RulesDao;
 import com.us.drools.util.DroolsUtils;
 import org.drools.compiler.kie.builder.impl.InternalKieModule;
+import org.drools.core.rule.FactType;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;
@@ -94,19 +95,19 @@ public class RulesService {
     public void getRules(Integer id) {
         KieServices kieServices = KieServices.Factory.get();
         KieResources resources = kieServices.getResources();
-        KieModuleModel kieModuleModel = kieServices.newKieModuleModel();//1
+        KieModuleModel kieModuleModel = kieServices.newKieModuleModel();
 
         KieBaseModel baseModel = kieModuleModel.newKieBaseModel(
-                "FileSystemKBase").addPackage("rules");//2
-        baseModel.newKieSessionModel("FileSystemKSession");//3
+                "FileSystemKBase").addPackage("rules");
+        baseModel.newKieSessionModel("FileSystemKSession");
         KieFileSystem fileSystem = kieServices.newKieFileSystem();
 
         String xml = kieModuleModel.toXML();
-        System.out.println(xml);//4
-        fileSystem.writeKModuleXML(xml);//5
+        System.out.println(xml);
+        fileSystem.writeKModuleXML(xml);
 
         fileSystem.write("src/main/resources/rules/rule.drl", resources
-                .newClassPathResource("kiefilesystem/KieFileSystemTest.drl"));//6
+                .newClassPathResource("kiefilesystem/KieFileSystemTest.drl"));
 
         KieBuilder kb = kieServices.newKieBuilder(fileSystem);
         kb.buildAll();//7
