@@ -1,0 +1,19 @@
+package cn.abel;
+global java.io.PrintStream out
+
+import cn.abel.model.Person;
+
+   function void printName(String name,Integer age) {
+            System.out.println("name:"+name+" age:"+ age);
+        }
+
+      rule "boy"
+            salience 3
+            when
+                $p : Person(age > 1);
+            then
+                $p.setAge(101);
+                insert(new Person("abel",0));
+                printName("age >0 "+$p.getName(),$p.getAge());
+        end
+
