@@ -14,7 +14,7 @@ public class Controller {
     @Autowired
     private ExecuteService executeService;
 
-    @GetMapping("/dynamic-rule")
+    @GetMapping("/dynamicRule")
     public String test() {
         return executeService.execute().toString();
     }

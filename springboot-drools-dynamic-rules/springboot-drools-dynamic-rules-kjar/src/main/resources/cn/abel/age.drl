@@ -13,7 +13,7 @@ import cn.abel.model.Person;
                 $p : Person(age > 1);
             then
                 $p.setAge(101);
-                insert(new Person("abel",0));
+                insert(new Person("abel",1));
                 printName("age >0 "+$p.getName(),$p.getAge());
         end
 
