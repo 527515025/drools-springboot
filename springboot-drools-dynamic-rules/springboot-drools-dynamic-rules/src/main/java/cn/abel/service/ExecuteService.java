@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 
 /**
- * @author yangyibo
+ * @author yyb
  * @time 2019/4/25
  */
 @Service
