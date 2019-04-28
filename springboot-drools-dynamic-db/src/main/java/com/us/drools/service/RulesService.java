@@ -1,13 +1,9 @@
 package com.us.drools.service;
 
 import com.us.drools.bean.Message;
-import com.us.drools.bean.ResourceWrapper;
 import com.us.drools.bean.Rules;
 import com.us.drools.dao.RulesDao;
-import com.us.drools.util.DroolsUtils;
-import org.drools.compiler.kie.builder.impl.InternalKieModule;
 import org.drools.core.ClassObjectFilter;
-import org.drools.core.rule.FactType;
 import org.kie.api.KieBase;
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;
@@ -16,7 +12,6 @@ import org.kie.api.builder.model.KieModuleModel;
 import org.kie.api.io.KieResources;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-import org.kie.internal.io.ResourceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
