@@ -1,15 +1,18 @@
 package com.us.drools.dao;
 
 import com.us.drools.bean.Rules;
-import com.us.drools.config.MyBatisRepository;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 
-
-/**
- * Created by yangyibo on 16/12/9.
- */
-@MyBatisRepository
+@Repository
+@Mapper
 public interface RulesDao {
-
-     Rules getById (Integer id);
+     /**
+      * 通过id 获取规则
+      * @param id
+      * @return
+      */
+     Rules getById (@Param("id")Integer id);
 }
