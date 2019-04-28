@@ -31,7 +31,7 @@ CREATE TABLE `rules` (
 --  Records of `rules`
 -- ----------------------------
 BEGIN;
-INSERT INTO `rules` VALUES ('1', 'package com.us.drools; import com.us.drools.bean.Message; rule \"Hello World abel \" when message:Message (status == \"0\") then System.out.println(\"hello, Drools abel2   !\"); end');
+INSERT INTO `rules` VALUES ('1', 'package com.us.drools; import com.us.drools.bean.Message; rule "Hello World abel " when $message:Message (status == "0") then $message.setContent("hello, Drools abel1   !");   System.out.println("hello, Drools abel2   !"); end');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
