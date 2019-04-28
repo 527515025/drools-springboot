@@ -10,11 +10,11 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>org.drools</groupId>
-            <artifactId>kiebase-inclusion</artifactId>
-            <version>7.6.0.Final</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.drools</groupId>-->
+            <!--<artifactId>kiebase-inclusion</artifactId>-->
+            <!--<version>7.6.0.Final</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>
