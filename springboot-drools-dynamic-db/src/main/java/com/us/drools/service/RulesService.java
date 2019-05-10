@@ -23,7 +23,7 @@ public class RulesService {
     @Autowired
     private RulesDao rulesDao;
 
-    public String getRulesWrite(Integer id) {
+    public String executeRules(Integer id) {
         String rules = "";
         Rules ru = rulesDao.getById(id);
         if (ru != null && ru.getRules() != null) {

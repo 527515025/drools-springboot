@@ -25,7 +25,7 @@ public class RulesController {
     @ResponseBody
     public ResponseEntity<Object> getRuleByWrite(@PathVariable Integer id) {
 
-        return new ResponseEntity<>(rulesService.getRulesWrite(id), HttpStatus.OK);
+        return new ResponseEntity<>(rulesService.executeRules(id), HttpStatus.OK);
     }
 
 }
